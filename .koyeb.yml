@@ -1,0 +1,27 @@
+name: backendrni
+services:
+  - name: api
+    type: web
+    build:
+      type: buildpack
+    instance_type: small
+    ports:
+      - port: 8000
+        protocol: http
+    env:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "8000"
+    health_check:
+      tcp:
+        port: 8000
+      grace_period: 5
+      interval: 30
+      restart_limit: 3
+      timeout: 5
+    regions:
+      - was
+    scaling:
+      min: 1
+      max: 1
