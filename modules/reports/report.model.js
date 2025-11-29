@@ -92,6 +92,26 @@ const reportSchema = new mongoose.Schema({
   disagreeCount: {
     type: Number,
     default: 0
+  },
+  hasSTD: {
+    type: Boolean,
+    default: false
+  },
+  stdInfo: {
+    type: String,
+    maxlength: 500
+  },
+  isTreated: {
+    type: Boolean,
+    default: false
+  },
+  relationshipPeriod: {
+    startDate: String,
+    endDate: String
+  },
+  anecdotes: {
+    type: String,
+    maxlength: 2000
   }
 }, {
   timestamps: true
