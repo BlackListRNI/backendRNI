@@ -1,0 +1,11 @@
+{
+    "manager": {
+        "module": "@greenlock/manager"
+    },
+    "sites": [
+        {
+            "subject": "coquettecraft.duckdns.org",
+            "altnames": ["coquettecraft.duckdns.org"]
+        }
+    ]
+}

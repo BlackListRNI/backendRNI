@@ -71,7 +71,7 @@ app.use((req, res) => {
 // Error handling middleware (must be last)
 app.use(errorHandler);
 
-// Start server
+// Start server (only if not imported as module)
 const startServer = async () => {
   try {
     await connectDatabase();
@@ -87,6 +87,9 @@ const startServer = async () => {
   }
 };
 
-startServer();
+// Only start if this is the main module
+if (require.main === module) {
+  startServer();
+}
 
 module.exports = app;
