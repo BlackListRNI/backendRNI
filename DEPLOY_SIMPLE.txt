@@ -1,0 +1,43 @@
+DEPLOY EN KOYEB - SUPER SIMPLE
+
+1. CREAR MONGODB ATLAS (5 minutos):
+   - Ve a: https://www.mongodb.com/cloud/atlas/register
+   - Crea cuenta
+   - Crea cluster M0 (gratis)
+   - Network Access: 0.0.0.0/0
+   - Database Access: crear usuario "rniuser" con password "RNI2024SecurePass"
+   - Obtén connection string
+
+2. SUBIR A GITHUB:
+   cd backend
+   git init
+   git add .
+   git commit -m "Deploy"
+   git remote add origin https://github.com/BlackListRNI/backendRNI.git
+   git push -u origin main
+
+3. CONFIGURAR KOYEB:
+   - Ve a: https://app.koyeb.com/
+   - Tu app: backendrni
+   - Settings -> Environment variables
+   - Pega estas variables:
+
+PORT=8000
+NODE_ENV=production
+MONGODB_URI=[TU CONNECTION STRING DE ATLAS]
+FRONTEND_URL=https://registronacionaldeinfieles.netlify.app
+JWT_SECRET=a8f5f167f44f4964e6c998dee827110c03f0245c8b3e8e3e8e3e8e3e8e3e8e3e
+IPAPI_KEY=free
+MAX_REPORTS_PER_DAY=3
+VERIFICATION_THRESHOLD=3
+DISPUTE_REVIEW_HOURS=48
+
+4. LISTO
+   Koyeb redesplegará automáticamente
+   Tu backend estará en: https://backendrni-XXXXX.koyeb.app
+
+5. ACTUALIZAR FRONTEND:
+   Edita frontend/config.js con la URL de Koyeb
+   git push
+
+TOTAL: 10 minutos
